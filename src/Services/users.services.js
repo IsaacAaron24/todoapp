@@ -106,7 +106,7 @@ class UserServices {
         }
     }  
 
-    static async update(updateData) {
+    static async update(updateData, id) {
         try {
             const result = await UserServices.update(updateData, {
                 where: {id},
