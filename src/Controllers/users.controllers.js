@@ -41,9 +41,20 @@ const getUserWithTasks = async(req, res) => {
     }
 }
 
+const createUser = async(req, res) => {
+    try {
+        const newUser = req.body;
+        const result = await UserServices.add(newUser);
+        res.status(201).json(result)
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 module.exports = {
     getAllUsers,
     getUserById,
     getUserWithAddres,
     getUserWithTasks,
+    createUser,
 };
