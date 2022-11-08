@@ -53,12 +53,12 @@ const createUser = async(req, res) => {
 
 const updateUser = async(req, res) => {
     try {
-        const {id} = req.params
-        const updateData = req.body
-        const result = await UserServices.update(updateData, id)
-        res.status(200).json(result) 
+        const {id} = req.params;
+        const dataUpdate = req.body;
+        const result = await UserServices.update(dataUpdate, id);
+        res.status(200).json(result); 
     } catch (error) {
-        console.log(error)
+        console.log(error);
     }
 }
 
