@@ -84,7 +84,8 @@ class UserServices {
                             model: Categories,
                             as: "categories",
                             attributes: [
-                                "name"
+                                "name",
+                                "createdAt"
                             ]
                         }
                     }
@@ -99,6 +100,12 @@ class UserServices {
     static async add(newUser) {
         try {
             const result = await Users.create(newUser);
+            attributes: {
+                exclude: [
+                    "updatedAt",
+
+                ]
+            }
             return result;
         } catch (error) {
             throw(error);
