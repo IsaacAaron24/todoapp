@@ -51,10 +51,22 @@ const createUser = async(req, res) => {
     }
 }
 
+const updateUser = async(req, res) => {
+    try {
+        const {id} = req.params
+        const updateData = req.body
+        const result = await UserServices.update(updateData, id)
+        res.status(200).json(result) 
+    } catch (error) {
+        console.log(error)
+    }
+}
+
 module.exports = {
     getAllUsers,
     getUserById,
     getUserWithAddres,
     getUserWithTasks,
     createUser,
+    updateUser,
 };
